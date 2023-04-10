@@ -4,7 +4,7 @@ from math import sqrt,log,pow
 
 
 def f(x):
-    return np.cos(x+sqrt(log(x**2)))
+    return 1 / (1 + 25 * x**2)
 
 
 def poly(x, y):
@@ -24,7 +24,7 @@ def p(x, coefs):
 
 
 if __name__ == '__main__':
-    x = [1.539, 1.925, 2.165, 2.658, 2.93, 3.208, 3.398, 3.816, 4.283, 4.573, 4.857]
+    x = [-0.943, -0.711, -0.618, -0.344, -0.172, -0.015, 0.192, 0.369, 0.493, 0.719, 0.896]
     y = []
 
     for i in x:
@@ -32,6 +32,8 @@ if __name__ == '__main__':
 
     np.set_printoptions(suppress=True)
     coefs = poly(x, y)
+    for p in coefs:
+        print(str(p) + ',') 
     print(coefs)
    # print(abs(f(-2.285) - p(-2.285, coefs)))
     #print(abs(f(-1.791) - p(-1.791, coefs)))

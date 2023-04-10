@@ -20,16 +20,17 @@ def func_poly(x, coeffs):
 if __name__ == '__main__':
     #exemplo 1
 
-    x=[-3.501, 0.782, 2.865]
-    y=[3.368, 3.434, 4.735]
+    x = [-2.519, -0.405, 3.627]
+    y = [2.844, 3.636, 3.801]
 
     coeffs = poly(x,y)
     #print(coeffs)
 
-    for x in (coeffs):
-        print("%.16f," %x)
+    # for x in (coeffs):
+        # print("%.16f," %x)
     def p(x):
         return func_poly(x,coeffs)
-
-print("%.16f" %p(-3.229))
-print("%.16f" %p(1.308))
+    
+for v in [-2.886, -1.853]:
+    print("%.16f," %p(v))
+    print("%.16f," %p(v))

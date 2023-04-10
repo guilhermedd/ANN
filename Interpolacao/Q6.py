@@ -4,7 +4,7 @@ from math import sqrt
 
 
 def f(x):
-    return np.sin(sqrt(1+np.tan(x)))
+    return 4 + np.sin(x) - (x**2)/30
 
 
 def poly(x, y):
@@ -24,7 +24,8 @@ def p(x, coefs):
 
 
 if __name__ == '__main__':
-    x = [2.696, 3.735, 4.398]
+    x = [1.411, 2.106, 4.451]
+    values = [0.403, 1.247]
     y = []
 
     for i in x:
@@ -32,6 +33,6 @@ if __name__ == '__main__':
 
     np.set_printoptions(suppress=True)
     coefs = poly(x, y)
-    print(coefs)
-    print(abs(f(3.198) - p(3.198, coefs)))
-    print(abs(f(4.227) - p(4.227, coefs)))
+    print('------------')
+    for v in values:
+        print(str(abs(f(v) - p(v, coefs))) + ',')

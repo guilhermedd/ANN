@@ -34,13 +34,13 @@ void jacobi(double A[L][C], double B[L], double chute[L], int n, int p[]){
 }
 
 int main(){
-    double A[L][C]={{-6.31, 3.73, -1.05}, {-0.83, -4.48, 2.12}, {-3.97, -4.13, 9.62}};
-    double B[L]={-1.27, 1.88, -0.23}; // result
+    double A[L][C]={{10.29, -4.45, 4.35}, {-3.24, 5.22, -0.49}, {0.06, -4.06, 5.61}};
+    double B[L]={-3.16, 0.15, -0.31}; // result
 
-    int iterations[SIZE] = {1, 5, 6, 7, 10, 12, 17, 19};
+    int iterations[SIZE] = {1, 5, 7, 10, 12, 15, 17, 18};
 
-    double chute[L]={-1.06, 2.11, 0.46}; // x0
-    int n=19;
+    double chute[L]={1.23, 0.22, 2.55}; // x0
+    int n=60;
 
     jacobi(A, B, chute, n, iterations);
 

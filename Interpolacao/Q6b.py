@@ -1,10 +1,10 @@
-from cmath import sin
+from cmath import sin, sqrt
 import numpy as np
 
 
 
 def f(x):
-    return np.sin(x)**3- 3*np.sin(x)**2+np.sin(pow(x,2)) + 4
+    return x**5 - 4 * x**2 + 2 * sqrt(x + 1) + np.cos(x)  
 
 
 def poly(x, y):
@@ -24,7 +24,9 @@ def p(x, coefs):
 
 
 if __name__ == '__main__':
-    x = [-3.741, -1.233, -0.28, 1.582, 3.725]
+    x = [0.371, 1.072, 1.779, 2.64, 3.587, 3.973, 4.753, 5.872, 6.596]
+    values = [0.637, 1.152, 3.931, 4.205, 5.9]
+            
     y = []
 
     for i in x:
@@ -32,7 +34,7 @@ if __name__ == '__main__':
 
     np.set_printoptions(suppress=True)
     coefs = poly(x, y)
-    print(coefs)
-print(abs(f(-0.455) - p(-0.455, coefs)))
-print(abs(f(1.476) - p(1.476, coefs)))
-print(abs(f(2.114) - p(2.114, coefs)))
+
+print('-----------')
+for v in values:
+    print(str(abs(f(v) - p(v, coefs))) + ',')

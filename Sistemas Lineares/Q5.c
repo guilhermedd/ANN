@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-#define L 4
-#define C 4
+#define L 3
+#define C 3
 #define SIZE 12
 
 

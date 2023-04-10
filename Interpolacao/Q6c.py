@@ -1,8 +1,9 @@
 import numpy as np
+from math import exp
 
 
 def f(x):
-    return (np.cos(x)**3)+(2*np.cos(x)**2)+1
+    return exp(-x**2) + np.cos(x) + 3
 
 
 def poly(x, y):
@@ -22,7 +23,8 @@ def p(x, coefs):
 
 
 if __name__ == '__main__':
-    x = [-2.515, -2.042, -0.695, -0.183, 1.049, 1.328, 2.317, 3.4, 4.286]
+    x = [0.31, 1.366, 1.803, 2.818, 3.658, 4.54, 4.985, 5.9, 6.92]
+    values = [0.814, 1.114, 3.36, 3.736, 6.922]
     y = []
 
     for i in x:
@@ -30,10 +32,6 @@ if __name__ == '__main__':
 
     np.set_printoptions(suppress=True)
     coefs = poly(x, y)
-    print(coefs)
 
-print(abs(f(-0.12) - p(-0.12, coefs)))
-print(abs(f( 0.552) - p( 0.552, coefs)))
-print(abs(f(3.471) - p(3.471, coefs)))
-print(abs(f(3.952) - p(3.952, coefs)))
-print(abs(f( 4.235) - p( 4.235, coefs)))#pontos
+for v in values:
+    print(str(abs(f(v) - p(v, coefs))) + ',')#pontos

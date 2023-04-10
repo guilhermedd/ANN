@@ -38,6 +38,6 @@ int main(){
     double chute[L]={-3.42, -1.53, 1.37}; // x0
     int n=19;
 
-    jacobi(A, B, chute, n);
+    jacobi(A, B, chute, n, iterations);
 
     return 0;

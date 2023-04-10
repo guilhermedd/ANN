@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <math.h>
-#define L 4
-#define C 4
-#define SIZE 12
+#define L 3
+#define C 3
+#define SIZE 8
 
 void jacobi(double A[L][C], double B[L], double chute[L], int n, int p[]){
     int iteracao = 1;
@@ -33,13 +33,13 @@ void jacobi(double A[L][C], double B[L], double chute[L], int n, int p[]){
 //***************************************************************************
 
 int main(){
-    double A[L][C]={{7.47, -0.93, -0.69, 4.24}, {2.64, 7.93, -3.15, -0.55}, {2.69, 3.93, -13.03, -4.81}, {4.66, -2.82, -2.06, 11.14}};
-    double B[L]={4.28, -2.19, 4.48, 4.2}; // result
+    double A[L][C]={{8.81, -2.35, 4.87}, {-0.58, 5.02, -2.86}, {2.72, 0.49, 4.8}};
+    double B[L]={-2.79, -3.61, -4.05}; // result
 
-    double chute[L]= {0.41, 4.14, -1.54, 1.6}; //x0
+    double chute[L]= {-1.97, 0.42, -2.53}; //x0
     int n=25;
 
-    int iterations[SIZE] = {1, 3, 4, 5, 6, 7, 11, 12, 16, 17, 23, 25};
+    int iterations[SIZE] = {1, 5, 7, 10, 12, 15, 17, 18};
 
     jacobi(A, B, chute, n, iterations);
 

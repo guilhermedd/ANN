@@ -20,8 +20,9 @@ def func_poly(x, coeffs):
 if __name__ == '__main__':
     #exemplo 1
 
-    x=[2.828, 3.121, 3.69, 4.118, 4.528]
-    y=[0.733, 0.836, 0.955, 1.0, 0.581]
+    x = [0.119, 1.627, 2.538, 3.14, 4.157]
+    y = [4.118, 4.91, 4.353, 3.673, 2.574]
+    values = [0.065, 1.183, 1.741]
 
     coeffs = poly(x,y)
     #print(coeffs)
@@ -31,6 +32,5 @@ if __name__ == '__main__':
     def p(x):
         return func_poly(x,coeffs)
 
-print("%.16f" %p(3.694))
-print("%.16f" %p(4.106))
-print("%.16f" %p( 4.387))
+for v in values:
+    print(str(v), "%.16f," %p(v))
