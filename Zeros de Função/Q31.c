@@ -129,9 +129,9 @@ void false_position (double (*f)(double), double a, double b, int n, int p[])
 
 double f(double x)
 {
-    double A = 9.65*x + pow(x,2)/2.0;
-    double B = 9.65 + x;
-    return 1 - (pow(140.07,2)/(9.81*pow(A,3))) * B;
+    double A = 7.7*x + pow(x,2)/2.0;
+    double B = 7.7 + x;
+    return 1 - (pow(156.75,2)/(9.81*pow(A,3))) * B;
 }
 
 double df(double x)
@@ -142,13 +142,13 @@ double df(double x)
 int main()
 {
     int n = 12;
-    double aB = 0.6;
-    double bB = 9.81;
+    double aB = 0.36;
+    double bB = 9.45;
     double x0N = 28.06;
     double x0S = 25.7;
     double x1S = 39.5;
-    double aPf = 0.46;
-    double bPf = 9.61;
+    double aPf = 0.6;
+    double bPf = 8.54;
 
     int iterations_bissection[SIZE1] = {2,4,8,12};
     int iterations_newton[SIZE2] = {1,3,5};

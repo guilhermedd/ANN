@@ -129,30 +129,31 @@ void false_position(double (*f)(double),double a,double b,int n, int p[]){
 
 double f(double x)
 {
-    double r = 6.57;
-    double ps = 622.9;
+    double r = 5.66;
+    double ps = 435.89;
     double pw = 1000.0;
-    double vs = (4.0/3.0)*M_PI*pow(r,3);
+    double vs = (4.0/3.0)*PI*pow(r,3);
     double v = -1*(((ps*vs)/pw)-vs);
-    return -v + ((M_PI*pow(x,2))/3.0) * (3*r-x);
+    return -v + ((PI*pow(x,2))/3.0) * (3*r-x);
     // -447.9620778038568005 + ((PI*pow(x,2))/3.0) * (3*6.57-x)
 }
 
 double df(double x)
 {
-    return -(M_PI*x*(50*x-657))/50.0;
+    double r = 5.66;
+    return (2 * PI * pow(x, 2) * (r - x/2)) / 3.0;
 }
 
 int main()
 {
     int n = 12;
     double aB = 0.0;
-    double bB = 13.14;
-    double x0N = 7.34;
-    double x0S = 1.75;
-    double x1S = 10.73;
+    double bB = 11.32;
+    double x0N = 8.37;
+    double x0S = 2.17;
+    double x1S = 10.3;
     double aPf = 0.0;
-    double bPf = 13.14;
+    double bPf = 11.32;
 
     int iterations_bissection[SIZE1] = {2,4,8,12};
     int iterations_newton[SIZE2] = {1,3,5};

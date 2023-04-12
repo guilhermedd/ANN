@@ -129,27 +129,26 @@ void false_position(double (*f)(double),double a,double b,int n, int p[]){
 
 double f(double x)
 {
-    double l = 6.94, r = 3.12, v = 94.05;
-    return -v + l * (0.5 * PI * pow(r, 2) - pow(r,2) * asin(x/r) - x * sqrt(pow(r,2) - pow(x,2)));
-    // return  -3.84 -1*((9.81/(2*pow(x,2)))*(sinh(x*1.06) - sin(x*1.06)));
+    double n = 101780957, lbda = 1.41 * pow(10, -10);
+    return (n + 1) / (1 + n * exp(- lbda * (n + 1) * x)) - 0.25 * n;
 }
 
 double df(double x)
 {
-    double l = 6.94, r = 3.12, v = 94.05;
-    return -l * x / sqrt(pow(r, 2) - pow(x, 2)) + l * r * sin(acos(x/r));;
+    double n = 101780957, lbda = 1.41 * pow(10, -10);
+    return (-1 * lbda * (n + 1) * n * exp(-lbda * (n + 1) * x)) / pow((1 + n * exp(-lbda * (n + 1) * x)), 2);
 }
 
 int main()
 {
     int n = 12;
-    double aB = 0.0;
-    double bB = 3.12;
-    double x0N = -1.89;
-    double x0S = 0.25;
-    double x1S = 2.38;
-    double aPf = 0.0;
-    double bPf = 3.12;
+    double aB = 0;
+    double bB = 2570;
+    double x0N = 2.82;
+    double x0S = 0.9;
+    double x1S = 3.68;
+    double aPf = 0;
+    double bPf = 2570;
 
     int iterations_bissection[SIZE1] = {2,4,8,12};
     int iterations_newton[SIZE2] = {1,3,5};
@@ -157,7 +156,7 @@ int main()
     int iterations_falseposition[SIZE4] = {2,4,7,11};
 
     bis(f, aB, bB, n, iterations_bissection);
-    // newton(f, df, x0N, n, iterations_newton);
-    secant(f, x0S, x1S, n, iterations_secant);
+//     newton(f, df, x0N, n, iterations_newton);
+//     secant(f, x0S, x1S, n, iterations_secant);
     false_position(f, aPf, bPf, n, iterations_falseposition);
 }

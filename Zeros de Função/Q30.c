@@ -127,8 +127,9 @@ void false_position(double (*f)(double),double a,double b,int n, int p[]){
     }
 }
 
-double f(double x)
+double f(double h)
 {
+    double g = 9.81, v = 8.76, t = 6.54, l = 3.2;
     return -7.01 + sqrt(2*9.81*x) * tanh((sqrt(2*9.81*x)/(2*5.79))*8.03);
 }
 

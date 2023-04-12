@@ -93,63 +93,70 @@ void secant(double (*f)(double), double x0, double x1, int n, int p[])
     }
 }
 
-void false_position(double (*f)(double),double a,double b,int n, int p[]){
-    double fa = f(a);
-    double fb = f(b);
+void false_position (double (*f)(double), double a, double b, int n, int p[])
+{
     int iteracao = 1;
     int i2 = 0;
-    if(fa * fb >= 0){
-        printf("O Teorema de Bolzano não sabe dizer se existe raiz para f no intervalo [%.16f, %.16f]",a,b);
-        return;
-    }else {
-        double x;
-        for(int i =0;i<n;i++){
-            x = (a *fb - b * fa) / (fb - fa);
-            if(iteracao == p[i2])
-            {
-                printf("%.16lf,\n",x);
-                i2++;
-            }
-            iteracao++;
-            double fx = f(x);
-            if(fx == 0){
-                printf("Encontramos uma raiz para f, ela é x = %.16lf",x);
-                return;
-            }
-            if(fa * fx < 0){
-                b = x;
-                fb = fx;
-            }else{
-                a = x;
-                fa = fx;
-            }
+    for(int i = 0; i < n; i++)
+    {
+        double fa = f(a);
+        double fb = f(b);
+        if(fa*fb >= 0)
+        {
+            printf("O teorema de Bolzano nao sabe dizer se existe\n");
+            break;
+        }
+        double x1 = (a * fb - b * fa) / (fb - fa);
+        if(iteracao == p[i2])
+        {
+            printf("%.16f,\n", x1);
+            i2++;
+        }
+        iteracao++;
+        double fx1 = f(x1);
+        if(fa * fx1 < 0)
+        {
+            b = x1;
+            fb = fx1;
+        }
+        else
+        {
+            a = x1;
+            fa = fx1;
         }
     }
 }
 
-double f(double x)
+double f(double v)
 {
-    double l = 6.94, r = 3.12, v = 94.05;
-    return -v + l * (0.5 * PI * pow(r, 2) - pow(r,2) * asin(x/r) - x * sqrt(pow(r,2) - pow(x,2)));
-    // return  -3.84 -1*((9.81/(2*pow(x,2)))*(sinh(x*1.06) - sin(x*1.06)));
+    double g = 9.81;
+    double c = 18.37;
+    double t = 9.19;
+    return c/t * (-log(1 - v*c/(g*t)));
 }
 
-double df(double x)
+double df(double v)
 {
-    double l = 6.94, r = 3.12, v = 94.05;
-    return -l * x / sqrt(pow(r, 2) - pow(x, 2)) + l * r * sin(acos(x/r));;
+    double g = 9.81;
+    double c = 18.37;
+    double t = 9.19;
+    double numerador = g*t;
+    double denominador = c*v + g*t;
+    double fator = numerador / denominador;
+    return c/t * fator*fator * exp(-c/t * log(1 - v*c/(g*t)));
+
 }
 
 int main()
 {
-    int n = 12;
-    double aB = 0.0;
-    double bB = 3.12;
-    double x0N = -1.89;
-    double x0S = 0.25;
-    double x1S = 2.38;
-    double aPf = 0.0;
-    double bPf = 3.12;
+    int n = 100;
+    double aB = 30.68;
+    double bB = 205.9;
+    double x0N = 25.82;
+    double x0S = 20.6;
+    double x1S = 35.68;
+    double aPf = 33.43;
+    double bPf = 209.7;
 
     int iterations_bissection[SIZE1] = {2,4,8,12};
     int iterations_newton[SIZE2] = {1,3,5};
@@ -157,7 +164,7 @@ int main()
     int iterations_falseposition[SIZE4] = {2,4,7,11};
 
     bis(f, aB, bB, n, iterations_bissection);
-    // newton(f, df, x0N, n, iterations_newton);
+    newton(f, df, x0N, n, iterations_newton);
     secant(f, x0S, x1S, n, iterations_secant);
     false_position(f, aPf, bPf, n, iterations_falseposition);
 }

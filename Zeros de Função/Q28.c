@@ -137,24 +137,35 @@ double df(double x)
     return (981*(1-exp(-1839003/(10000*x))))/2213-(815211*exp(-1839003/(10000*x)))/(10000*x);
 }
 
+double P(double x) {
+    int P0 = 1573052, nu = 310057, P = 3427673;
+    return  P0*exp(x) + (nu/x)*(exp(x)-1) - P;
+}
+
+double dPdlmbda(double x) {
+    int P0 = 1573052, nu = 310057, lambda = 3427673;
+    return P0*exp(x) + (nu/x) * exp(x) - (nu/(x*2)) * exp(x) + nu/(x*2);
+}
+
+
 int main()
 {
     int n = 12;
-    double aB = 26.78;
-    double bB = 193.22;
-    double x0N = 29.87;
-    double x0S = 26.53;
-    double x1S = 35.45;
-    double aPf = 36.5;
-    double bPf = 186.78;
+    double aB = 0.1;
+    double bB = 1.32;
+    double x0N = 1.08;
+    double x0S = 0.1;
+    double x1S = 1.02;
+    double aPf = 0.1;
+    double bPf = 1.67;
 
     int iterations_bissection[SIZE1] = {2,4,8,12};
     int iterations_newton[SIZE2] = {1,3,5};
     int iterations_secant[SIZE3] = {1,2,5};
     int iterations_falseposition[SIZE4] = {2,4,7,11};
 
-    bis(f, aB, bB, n, iterations_bissection);
-    newton(f, df, x0N, n, iterations_newton);
-    secant(f, x0S, x1S, n, iterations_secant);
-    false_position(f, aPf, bPf, n, iterations_falseposition);
+    bis(P, aB, bB, n, iterations_bissection);
+    newton(P, dPdlmbda, x0N, n, iterations_newton);
+    secant(P, x0S, x1S, n, iterations_secant);
+    false_position(P, aPf, bPf, n, iterations_falseposition);
 }
