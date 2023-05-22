@@ -35,12 +35,12 @@ def dif_fin(coeffs, y):
 if __name__ == '__main__':
     
     def f(x):
-        return math.sin(math.cos(math.exp(-x)))
+        return math.cos(math.exp(-x**2)) + math.sin(x**2 / 2)
 
     k = 1 # ordem
     n = 5 # número de pontos
-    x0 = -1.5479
-    x = [-1.7908, -1.6477, -1.5691, -1.4191, -1.3834]
+    x0 = 0.4448
+    x = [0.2702, 0.3334, 0.413, 0.5444, 0.6587]
 
 
     # queremos pontos no intervalo [x0-e, x0+e]

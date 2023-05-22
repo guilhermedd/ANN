@@ -17,10 +17,10 @@ if __name__ == '__main__':
     def func(x):
         return x**2*math.tan(math.sin(x/math.pi))
 
-    h = 0.30262
-    x0 = -1.97127
-  
-    err_order = [2,3,4,5,6]
+    h = 0.31189
+    x0 = 1.51651
+    
+    err_order = [2, 3, 4, 5, 6]
 
     def F1(h):
         return (func(x0 + h) - func(x0)) / h

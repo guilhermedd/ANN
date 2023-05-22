@@ -22,9 +22,9 @@ if __name__ == '__main__':
     def func(x):
         return x**(x**-x)
 
-    h = 0.32579
-    x0 = 1.56487
-  
+    h = 0.2758
+    x0 = 1.95186
+    
     err_order = [4, 5, 6, 7, 8]
 
     def F1(h):

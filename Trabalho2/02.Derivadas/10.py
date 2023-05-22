@@ -30,10 +30,11 @@ def finite_diffs(xs, ordem, x0, f):
 def f(x):
     return math.log(2 + math.cos(math.exp(-x)))
 
-x0 = -1.2797
-ordem = 4
-xs = [-1.49, -1.4338, -1.3477, -1.2864, -1.2172, -1.1592, -1.1107, -1.0893]
-values = [-1.3755, -1.3368, -1.3363, -1.1049]
+
+x0 = -0.523
+order = 4
+xs = [-0.7383, -0.7041, -0.6412, -0.5599, -0.465, -0.4019, -0.3872, -0.2835]
+values = [-0.5733, -0.3769, -0.3474, -0.3154]
 
 ordem1 = 1
 ordem2 = 2
@@ -45,7 +46,7 @@ n = len(values)
 for i in range(n):
     p = f(x0) + finite_diffs(xs, ordem1, x0, f)*(values[i] - x0) + ((finite_diffs(xs, ordem2, x0, f)/2) * ((values[i]-x0)**2)) + ((finite_diffs(xs, ordem3, x0, f)/6) * ((values[i]-x0)**3))  + ((finite_diffs(xs, ordem4, x0, f)/24) * ((values[i]-x0)**4))
     erroN = math.sqrt(((f(values[i]) - p)**2))
-    print(f'{values[i]} = {p} e |f(x) - p3(x)| = {erroN}')
+    print(f'{p}, {erroN},')
 
 num_pontos = 0
 a = x0 - 0.25

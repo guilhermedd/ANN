@@ -35,12 +35,12 @@ def dif_fin(coeffs, y):
 if __name__ == '__main__':
     
     def f(x):
-        return math.sin(x)**3 - 3*math.sin(x)**2 + math.sin(x**2) + 4
+        return math.exp(math.cos(x)**2) + math.exp(-x**2) + math.log(x)
 
     k = 2 # ordem
     n = 8 # número de pontos
-    x0 = -1.5648
-    x = [-1.7722, -1.6638, -1.5061, -1.4044]
+    x0 = 6.199
+    x = [5.9985, 6.0223, 6.0769, 6.1732, 6.2531, 6.3184, 6.3713, 6.3871]
 
 
 

@@ -28,11 +28,14 @@ def finite_diffs(xs, ordem, x0, f):
     return soma
 
 def f(x):
-    return  x**2 * math.cos(x - 1) * math.exp(-3 * x ** 2)
-x0 = 0.762
+    return x**2 * math.cos(x - 1) * math.exp(-3 * x ** 2)
+
+
+x0 = 0.4927
 ordem = 5
-xs = [0.5173, 0.5845, 0.6541, 0.7028, 0.7234, 0.7981, 0.829, 0.8671, 0.9456, 0.9769]
-values = [0.6433, 0.6706, 0.7465, 0.8425, 0.9402]
+xs = [0.2521, 0.2965, 0.3624, 0.4337, 0.4772,
+     0.5223, 0.5514, 0.6161, 0.6489, 0.7341]
+values = [0.3211, 0.378, 0.4064, 0.6536, 0.7094]
 ordem1 = 1
 ordem2 = 2
 ordem3 = 3
@@ -44,7 +47,7 @@ n = len(values)
 for i in range(n):
     p = f(x0) + finite_diffs(xs, ordem1, x0, f)*(values[i] - x0) + ((finite_diffs(xs, ordem2, x0, f)/2) * ((values[i]-x0)**2)) + ((finite_diffs(xs, ordem3, x0, f)/6) * ((values[i]-x0)**3)) + ((finite_diffs(xs, ordem4, x0, f)/24) * ((values[i]-x0)**4)) + ((finite_diffs(xs, ordem, x0, f)/120) * ((values[i]-x0)**5)) 
     erroN = math.sqrt(((f(values[i]) - p)**2))
-    print(f'{values[i]} = {p} e |f(x) - p3(x)| = {erroN}')
+    print(f'{p}, {erroN},')
 
 num_pontos = 0
 a = x0 - 0.25

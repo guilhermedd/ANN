@@ -65,12 +65,12 @@ if __name__ == '__main__':
     def f(x):
         return 3 * math.cos((x**2-1)**(1/3))
     def p(xp):
-        x0 = 5.3908
-        n = 6 # numero de pontos igualmente espaçados
+        x0 = 3.7192
+        n = 3 # numero de pontos igualmente espaçados
         # queremos pontos no intervalo [x0-e, x0+e]
         # ao diminuir o epsilon (e) os pontos são cada vez mais próximos
         e = 0.001
-        x = [5.2155, 5.2665, 5.3703, 5.4663, 5.5224, 5.5671]
+        x = [3.5172, 3.6252, 3.7077, 3.7871, 3.8062, 3.9291]
         y = [f(xi) for xi in x]
         
         coeffs = coeffs_dif_fin(x0, x, 1)
@@ -83,8 +83,7 @@ if __name__ == '__main__':
         f_3 = dif_fin(coeffs, y)
         return f(x0) + f_1*(xp - x0) + (f_2/2)*((xp - x0)**2) + (f_3/6)*((xp - x0)**3) 
     
-    
-    values = [5.2319, 5.2321, 5.3951]
+    values = [3.6106, 3.916, 3.9197]
     px = [p(vi) for vi in values]
     print(f'{px = }')
 

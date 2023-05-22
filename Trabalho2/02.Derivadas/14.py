@@ -25,8 +25,9 @@ def func(x):
 
 if __name__ == '__main__':
 
-    x0 = 1.84167
-    approximations = [-0.4116959036023622, -0.3561893897841317, -0.32809048285214004]
+    x0 = -1.48449
+    approximations = [1.7945178341143873,
+                      2.5054630080166547, 2.8048048242798167]
     aprox = richardson(approximations)
 
     print(f'{aprox = }')

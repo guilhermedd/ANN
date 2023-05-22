@@ -35,11 +35,11 @@ def dif_fin(coeffs, y):
 if __name__ == '__main__':
     
     def f(x):
-        return math.sin(x)**4 - 4*math.sin(x)**2 + math.cos(x**2) + math.exp(-x**2) + 5
+        return math.sin(math.sqrt(math.pi + x**2))
     k = 3 # ordem
     n = 7 # número de pontos
-    x0 = 4.9399
-    x = [4.7221, 4.8043, 4.8427, 4.9646, 4.9769, 5.0638, 5.1649]
+    x0 = 4.8638
+    x = [4.6726, 4.7108, 4.8225, 4.8808, 4.9248, 4.9954, 5.0482]
 
 
 
