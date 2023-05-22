@@ -155,10 +155,12 @@ if __name__ == '__main__':
         return g
 
 
-    funcs = ['math.exp(x)*math.sin(x)/(1+x**2)', 'math.exp(-x**2)', '(x+1/x)**2', 'math.log(math.sqrt(1+x**2))', 'math.cos(-x**2/3)']
-    a = [0.06, -0.884, 0.737, 1.799, -1.239]
-    b = [2.605, 1.214, 2.099, 3.43, 1.589]
-    exact_for_degree_less_than = [12, 4, 10, 8, 6]
+    funcs = ['math.log(math.sqrt(1+x**2))', 'math.exp(x)*math.sin(x)/(1+x**2)',
+            'math.cos(-x**2/3)', 'math.exp(-x**2)', '(x+1/x)**2']
+    a = [1.208, 0.29, -1.943, -1.342, 0.746]
+    b = [3.63, 2.172, 1.005, 0.898, 2.215]
+    exact_for_degree_less_than = [8, 12, 6, 4, 10]
+
     for i in range(len(funcs)):
         order = str(int(exact_for_degree_less_than[i]/2))
         txt_order = ['raiz'+order, 'peso'+order]

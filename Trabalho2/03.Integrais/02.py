@@ -13,10 +13,13 @@ def trapz(f, a, b, n):
 
 
 def f(x):
-    return math.sin((x/math.sqrt(x*x+1))) + 1
+    return math.sin(math.exp(-x**2))+1
 
-intervalo = [-1.823, 1.843]
-subintervalos = [6, 16, 48, 70, 82, 139, 206, 416, 612, 756, 3649, 9958]
+
+intervalo = [-1.863, 1.941]
+subintervalos = [4, 12, 32, 71, 96, 130, 224, 454, 550, 790, 1228, 5466]
+
+
 for i in range(len(subintervalos)):
     r = trapz(f, intervalo[0], intervalo[1], subintervalos[i])
     print(r,',')

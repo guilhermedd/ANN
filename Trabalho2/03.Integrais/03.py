@@ -4,8 +4,10 @@
 vive no gráfico de uma função f. Use a regra dos trapézios para aproximar a área embaixo 
 do gráfico de f no intervalo [0.166,4.552]."""
 
-x = [0.356, 1.578, 2.095, 2.53, 3.104, 3.197, 3.854]
-y = [2.425, 2.177, 2.009, 2.277, 2.939, 2.99, 1.709]
+
+x = [1.153, 1.279, 1.727, 2.317, 2.73, 3.285, 3.941]
+y = [2.657, 2.497, 2.074, 2.1, 2.508, 2.997, 1.414]
+
 soma = 0
 xy = zip(x, y)
 

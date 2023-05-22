@@ -34,11 +34,14 @@ def f(nome_funcao, value):
 
 
 if __name__ == '__main__':
-    func = ['math.cos(-x**2/3)', 'math.exp(x)*math.sin(x)/(1+x**2)', '(x+1/x)**2', 'math.sqrt(1+x**2)', 'math.exp(-x**2)']
-    a = [0.908, 0.763, 0.616, 0.407, -1.169]
-    b = [1.908, 1.763, 1.616, 1.407, -0.169]
-    order = [8, 10, 8, 6, 8]
-    n = [3, 5, 4, 5, 5]
+
+    func = ['math.sqrt(1+x**2)', 'math.exp(-x**2)', '(x+1/x)**2',
+            'math.cos(-x**2/3)', 'math.exp(x)*math.sin(x)/(1+x**2)']
+    a = [0.717, -1.229, 0.632, 0.205, 0.958]
+    b = [1.717, -0.229, 1.632, 1.205, 1.958]
+    order = [10, 4, 4, 8, 6]
+    n = [2, 2, 3, 2, 3]
+
 
     for i in range(len(func)):
         k = int(order[i]/2)
